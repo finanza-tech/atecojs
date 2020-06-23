@@ -1,0 +1,23 @@
+{
+  "name": "atecojs",
+  "version": "1.0.0",
+  "description": "Descrizioni codici ateco",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finanza-tech/atecojs.git"
+  },
+  "keywords": [
+    "ateco",
+    "ateco2007"
+  ],
+  "author": "Finanza.tech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finanza-tech/atecojs/issues"
+  },
+  "homepage": "https://github.com/finanza-tech/atecojs#readme"
+}
