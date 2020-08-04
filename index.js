@@ -145,7 +145,7 @@ module.exports = {
       
     })
 
-    console.log("menu", JSON.stringify(menu,null,2))
+    // console.log("menu", JSON.stringify(menu,null,2))
 
     return menu
   }
