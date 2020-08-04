@@ -103,5 +103,50 @@ module.exports = {
       results.push(code.splice(0, 2).join(''))
     }
     return results
+  },
+  tree: function () {
+
+    let menu = []
+
+    const tree = codici.map((code, i) => {
+      const chunks = code._id.split('.')
+      const root = chunks[0]
+      const firstLevel = chunks[1]
+      const secondLevel = chunks[2]
+      const thirdLevel = chunks[3]
+     
+
+      if (firstLevel === undefined) {
+        console.log("\nroot changed to:", code._id)
+        menu.push({
+          value: root,
+          label: code.desc,
+          children: []
+        })
+      }
+
+      else if (firstLevel && secondLevel === undefined) {
+        const key = root + '.' + firstLevel
+        const el = codici.filter(c => c._id === key)
+        const index = menu.findIndex(m => m.value === root)
+        // console.log("add children to", root, ", child item is", el, index)
+        menu[index].children.push({ value: el[0]._id, label:el[0].desc, children: []})
+      } 
+      
+      else {
+        const key = root + '.' + firstLevel + "." + secondLevel + "." + thirdLevel
+        const el = codici.filter(c => c._id === key)
+        // console.log("el", el)
+        const rootIndex = menu.findIndex(m =>  m.value === root)
+        // console.log("add sub children to children", root + '.' + firstLevel, ", child item is", el, "at this pos,",  rootIndex) 
+        const subIndex = menu[rootIndex].children.findIndex( subchild => subchild.value === root + '.' + firstLevel )
+        menu[rootIndex].children[subIndex].children.push({ value: el[0]._id, label:el[0].desc})
+      }
+      
+    })
+
+    console.log("menu", JSON.stringify(menu,null,2))
+
+    return menu
   }
 }

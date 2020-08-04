@@ -38,4 +38,9 @@ describe('parse', function () {
     // desc = atecojs.desc('82.04')
     // chai.assert.strictEqual(desc, 'ATTIVITÀ DI SUPPORTO PER LE FUNZIONI D\'UFFICIO E ALTRI SERVIZI DI SUPPORTO ALLE IMPRESE')
   })
+
+  it('create tree menu' , function() {
+    const tree = atecojs.tree()
+    console.log(JSON.stringify(tree, null, 2))
+  })
 })
